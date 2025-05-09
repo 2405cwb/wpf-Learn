@@ -28,3 +28,4 @@
    5. https://www.bilibili.com/video/BV1Z5411y7mg?spm_id_from=333.788.player.switch&vd_source=c6341ba8c0f1a12df7b867500e06d5de
 ## TestDialog
 1. 使用prism的对话框服务
+2. 使用prism的事件聚合器
