@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Prism.Ioc;
+using TestDialog.ViewModels;
 using TestDialog.Views;
 
 namespace TestDialog
@@ -16,7 +17,8 @@ namespace TestDialog
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterDialogWindow<>();
+            containerRegistry.RegisterDialogWindow<MessageBoxBase>();
+            containerRegistry.RegisterDialog<Views.MessageBox, MessageBoxViewModel>();
         }
     }
 }

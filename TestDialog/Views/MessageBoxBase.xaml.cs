@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Services.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,13 @@ namespace TestDialog.Views
     /// <summary>
     /// MessageBoxBase.xaml 的交互逻辑
     /// </summary>
-    public partial class MessageBoxBase : Window
+    public partial class MessageBoxBase : Window,IDialogWindow
     {
         public MessageBoxBase()
         {
             InitializeComponent();
         }
+
+        public IDialogResult Result { get ; set ; }
     }
 }
