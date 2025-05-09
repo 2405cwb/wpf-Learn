@@ -1,6 +1,6 @@
 # Learn
 ## CwbControls
-1. 学习制作简单的wpf控件
+1. wpf自定义控件
    1. 设计了一个自己的button控件，控件增加依赖属性圆角
 ## SimpleDataManager001
 1. 模拟创建一个增删改查的界面程序
