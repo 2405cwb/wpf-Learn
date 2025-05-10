@@ -37,3 +37,4 @@
         <WindowChrome CaptionHeight="30" CornerRadius="10" />
     </WindowChrome.WindowChrome>
 '''
+3. 使用font-awsome字体库
