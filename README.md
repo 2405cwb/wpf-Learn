@@ -29,3 +29,11 @@
 ## TestDialog
 1. 使用prism的对话框服务
 2. 使用prism的事件聚合器
+## Prism选项卡导航
+1. 使用prism进行页面导航
+2. 使用 赋予窗体基本功能
+'''cShape
+<WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30" CornerRadius="10" />
+    </WindowChrome.WindowChrome>
+'''

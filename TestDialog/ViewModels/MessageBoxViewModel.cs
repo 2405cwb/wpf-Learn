@@ -36,7 +36,7 @@ namespace TestDialog.ViewModels
 
         public void OnDialogClosed()
         {
-            
+            _eventAggregator.GetEvent<CloseEvente>().Unsubscribe(CloseDialog);
         }
 
         private MessageBase _data;
