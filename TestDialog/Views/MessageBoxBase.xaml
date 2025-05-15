@@ -8,5 +8,6 @@
     Title="MessageBoxBase" 
     WindowStartupLocation="CenterOwner"
     SizeToContent="WidthAndHeight"
-    mc:Ignorable="d">  />
+    WindowStyle="None"
+    mc:Ignorable="d">/>
 </Window>

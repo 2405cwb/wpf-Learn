@@ -1,19 +1,28 @@
 ﻿using Example;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using TestDialog.Entitys;
+using TestDialog.Events;
 
 namespace TestDialog.ViewModels
 {
     public class MessageBoxViewModel : BindableBase, Prism.Services.Dialogs.IDialogAware
     {
-        public MessageBoxViewModel()
+        private readonly IEventAggregator _eventAggregator;
+        public MessageBoxViewModel(IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
+            _eventAggregator.GetEvent<CloseEvente>().Subscribe(CloseDialog);
+        }
 
+        private void CloseDialog(string obj)
+        {
+            _commCloseDialog?.Execute();
         }
 
         public string Title => "提示框";
@@ -27,7 +36,7 @@ namespace TestDialog.ViewModels
 
         public void OnDialogClosed()
         {
-            
+            _eventAggregator.GetEvent<CloseEvente>().Unsubscribe(CloseDialog);
         }
 
         private MessageBase _data;
@@ -42,8 +51,10 @@ namespace TestDialog.ViewModels
         public DelegateCommand CommCloseDialogand =>
             _commCloseDialog ?? (_commCloseDialog = new DelegateCommand(ExecuteCommCloseDialog));
 
+
         void ExecuteCommCloseDialog()
         {
+            if (RequestClose == null) return; // 防御性编程
             MessageBase reData = new MessageBase();
             reData.Title = "返回信息";
             reData.Content = "cwb";

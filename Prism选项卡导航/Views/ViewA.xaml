@@ -1,0 +1,15 @@
+﻿<UserControl
+    x:Class="Prism选项卡导航.Views.ViewA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    FontFamily="{DynamicResource FontAwesome}"
+     >
+
+    <Grid Background="Red">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button  Content="&#xf106;"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
