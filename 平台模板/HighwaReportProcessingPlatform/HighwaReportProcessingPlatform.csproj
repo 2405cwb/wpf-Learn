@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+   
+	  <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+  
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+   <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+   <ProjectReference Include="..\Core\Core.csproj" />
+   <ProjectReference Include="..\ModuleConfiguration\ModuleConfiguration.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GuiResources\GuiResources.csproj" />
+    <ProjectReference Include="..\ModuleConfiguration\ModuleConfiguration.csproj" />
+  </ItemGroup>
+</Project>

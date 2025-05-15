@@ -1,0 +1,165 @@
+﻿<Window
+    x:Class="HighwaReportProcessingPlatform.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+    xmlns:core="clr-namespace:Core;assembly=Core"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+    Width="1024"
+    Height="650"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="45"
+            CornerRadius="20"
+            GlassFrameThickness="0"
+            NonClientFrameEdges="None" />
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <!--  列表项样式（来自第二段代码）  -->
+
+    </Window.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadMoudlesCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <materialDesign:DialogHost DialogTheme="Inherit" Identifier="RootDialog">
+        <materialDesign:DrawerHost x:Name="drawLeftHost" IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+
+            <!--  左侧抽屉内容  -->
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="220">
+                    <!--  用户信息区域  -->
+                    <StackPanel Margin="0,20,0,0" DockPanel.Dock="Top">
+                        <Image
+                            Width="50"
+                            Height="50"
+                            HorizontalAlignment="Center"
+                            Source="/GuiResources;component/Resouces/Pictures/touxiang.jpg">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="25 25"
+                                    RadiusX="25"
+                                    RadiusY="25" />
+                            </Image.Clip>
+                        </Image>
+                        <TextBlock
+                            Margin="0,20"
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            Text="{x:Static core:StaticConstString.InitUserName}" />
+                    </StackPanel>
+
+                    <!--  菜单列表  -->
+                    <ListBox x:Name="menuBar" ItemsSource="{Binding ModelsItems}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding ModuleCommand}" CommandParameter="{Binding ElementName=menuBar, Path=SelectedItem}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon
+                                        Width="30"
+                                        Height="30"
+                                        Margin="10,0,5,0"
+                                        Kind="{Binding Icon}" />
+                                    <TextBlock
+                                        Margin="10,5,0,0"
+                                        FontSize="16"
+                                        Text="{Binding DisPlayName}"
+                                        ToolTip="{Binding Description}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+
+            <!--  主界面布局  -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--  顶部标题栏  -->
+                <materialDesign:ColorZone
+                    x:Name="ColorZone"
+                    Grid.Row="0"
+                    Height="45"
+                    materialDesign:ElevationAssist.Elevation="Dp4"
+                    Mode="PrimaryMid">
+                    <DockPanel WindowChrome.IsHitTestVisibleInChrome="True">
+                        <!--  菜单切换按钮  -->
+                        <ToggleButton
+                            x:Name="MenuToggleButton"
+                            Width="80"
+                            DockPanel.Dock="Left"
+                            IsChecked="False"
+                            Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                        <Button
+                            Margin="24,0,0,0"
+                            Command="{Binding GoBackCommad}"
+                            Content="{materialDesign:PackIcon Kind=ArrowLeft,
+                                                              Size=24}"
+                            Cursor="Hand"
+                            Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"
+                            Style="{StaticResource MaterialDesignToolButton}"
+                            ToolTip="Previous Item" />
+
+                        <Button
+                            Margin="16,0,0,0"
+                            Command="{Binding GoForwardCommand}"
+                            Content="{materialDesign:PackIcon Kind=ArrowRight,
+                                                              Size=24}"
+                            Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"
+                            Style="{DynamicResource MaterialDesignToolButton}"
+                            ToolTip="Next Item" />
+                        <!--  操作按钮  -->
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                            <Button
+                                x:Name="BtnMin"
+                                Command="{Binding MinimizeCommand}"
+                                Content="-"
+                                Style="{DynamicResource MaterialDesignFlatMidBgButton}" />
+                            <Button
+                                x:Name="BtnMax"
+                                Command="{Binding MaximizeCommand}"
+                                Content="□"
+                                Style="{DynamicResource MaterialDesignFlatMidBgButton}" />
+                            <Button
+                                x:Name="BtnClose"
+                                Command="{Binding CloseCommand}"
+                                Content="×"
+                                Style="{DynamicResource MaterialDesignFlatMidBgButton}" />
+                        </StackPanel>
+
+                        <!--  标题  -->
+                        <TextBlock
+                            Margin="0,0,20,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Foreground="{DynamicResource MaterialDesignBody}"
+                            Text="{Binding Title}" />
+                    </DockPanel>
+                </materialDesign:ColorZone>
+
+                <!--  主内容区域  -->
+                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
+            </Grid>
+
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+</Window>

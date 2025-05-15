@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resouces\Pictures\touxiang.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resouces\fonts\fontawesome-webfont.ttf" />
+    <Resource Include="Resouces\Pictures\touxiang.jpg" />
+	  <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+  </ItemGroup>
+
+</Project>

@@ -28,3 +28,8 @@
    5. https://www.bilibili.com/video/BV1Z5411y7mg?spm_id_from=333.788.player.switch&vd_source=c6341ba8c0f1a12df7b867500e06d5de
 ## TestDialog
 1. 使用prism的对话框服务
+## 平台模板
+1. 构建通用平台类模板
+	1. 使用md构建统一样式，添加颜色管理菜单，右侧隐藏菜单等
+	2. 使用DryIoc进行依赖注入管理
+	3. 使用Prism框架构建对话服务，mvvm等

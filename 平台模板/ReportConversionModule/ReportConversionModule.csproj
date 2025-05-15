@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+	  <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+	  <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GuiResources\GuiResources.csproj" />
+    <ProjectReference Include="..\ModuleConfiguration\ModuleConfiguration.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)..\HighwaReportProcessingPlatform\bin\Debug\net8.0-windows8.0\Modules\&quot; /Y" />
+  </Target>
+</Project>
