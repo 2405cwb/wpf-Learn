@@ -7,11 +7,11 @@
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\GuiResources\GuiResources.csproj" />
-	  <ProjectReference Include="..\ModuleConfiguration\ModuleConfiguration.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)..\HighwaReportProcessingPlatform\bin\Debug\net8.0-windows8.0\Modules\&quot; /Y" />
+    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)..\ProcessingPlatform\bin\Debug\net8.0-windows8.0\Modules\&quot; /Y" />
   </Target>
 </Project>

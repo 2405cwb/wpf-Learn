@@ -1,6 +1,6 @@
-﻿using ConfigMoudel.ViewModels;
-using ConfigMoudel.Views;
-using ModuleConfiguration;
+﻿using Common.Attributes;
+using ConfigMoudel.ViewModels;
+using ConfigMoudel.Views; 
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;

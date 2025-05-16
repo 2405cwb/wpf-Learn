@@ -1,5 +1,4 @@
-﻿using HighwaReportProcessingPlatform.Configuration;
-using ModuleConfiguration;
+﻿using HighwaReportProcessingPlatform.Configuration; 
 using Prism.Commands;
 using Prism.Modularity;
 using Prism.Mvvm;
@@ -13,6 +12,7 @@ using System.Windows.Documents;
 using Core;
 using Serilog;
 using System.Reflection.Emit;
+using Common.Attributes;
 namespace HighwaReportProcessingPlatform.ViewModels
 {
     public class MainWindowViewModel : BindableBase

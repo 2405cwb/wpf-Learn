@@ -1,4 +1,5 @@
-﻿using ModuleConfiguration;
+﻿
+using Common.Attributes;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;

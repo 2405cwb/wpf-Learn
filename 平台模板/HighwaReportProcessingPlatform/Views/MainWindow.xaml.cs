@@ -13,9 +13,7 @@ namespace HighwaReportProcessingPlatform.Views
             InitEvent();
         }
 
-        /// <summary>
-        /// 初始化事件
-        /// </summary>
+        
         private void InitEvent()
         {
             this.BtnMax.Click += (s, e) => {
