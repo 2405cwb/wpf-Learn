@@ -19,7 +19,7 @@ namespace ReportConversionModule.ViewModels
 
             for (int i = 0; i < 100; i++)
             {
-                filePaths.Add("FilePath is :" + i  + ".xlsx");
+                filePaths.Add("FilePath is :" + i  + ".1xlsx");
             }
 
         }
