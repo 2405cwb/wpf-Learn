@@ -37,8 +37,7 @@
                 Height="20"
                 Margin="10"
                 VerticalAlignment="Top"
-                IsChecked="{Binding IsDarkTheme, Mode=TwoWay}"
-                />
+                IsChecked="{Binding IsDarkTheme, Mode=TwoWay}" />
             <TextBlock
                 Margin="10,10,10,0"
                 FontSize="20"

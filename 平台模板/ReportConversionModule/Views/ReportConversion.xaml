@@ -10,18 +10,20 @@
     d:DesignWidth="300"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/GuiResources;component/Resouces/fonts/FontDictionary.xaml" />
-                <ResourceDictionary Source="/GuiResources;component/Resouces/styles/MdStyles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
-    <Grid Background="Green">
-        <Button
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Content="{Binding Message}" />
+    <UserControl.Resources />
+    <Grid>
+        <ListBox ItemsSource="{Binding FilePaths}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Margin="5"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>
