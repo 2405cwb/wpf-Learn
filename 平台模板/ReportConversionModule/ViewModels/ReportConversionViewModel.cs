@@ -32,7 +32,7 @@ namespace ReportConversionModule.ViewModels
             
         }
 
-        private ObservableCollection<string> filePaths;
+        private ObservableCollection<string> filePaths = new ObservableCollection<string>();
         public ObservableCollection<string> FilePaths
         {
             get { return filePaths; }
